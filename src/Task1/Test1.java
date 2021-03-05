@@ -6,31 +6,53 @@ package Task1;
 public class Test1 {
     public static void main(String[] args) {
         Numbers num = new Numbers();
-        num.x = 10;
-        num.y = 20;
-        num.print();
-        System.out.println("Сумма данных чисел: "+num.sumOfNumbers());
-        System.out.println("Наибольшее и двух чисел: "+num.maxNum());
+        num.setX(15);
+        num.setY(20);
+        System.out.println(num.getX());
+        System.out.println(num.getY());
+        System.out.println("Заменили Х на - " + num.getReplacementX(5));
+        System.out.println("Заменили Y на - " + num.getReplacementY(10));
+        System.out.println("Сумма данных чисел: " + num.getSum());
+        System.out.println("Наибольшее и двух чисел: " + num.getMaxNum());
     }
 }
 
 class Numbers {
-    int x, y;
+    private int x, y;
 
-    void print(){
-        System.out.println(x + " " + y);
+    public void setX(int x) {
+        this.x = x;
     }
-    void changingAVariable(){
 
+    public int getX() {
+        return x;
     }
-    int sumOfNumbers(){
-        return x+y;
+
+    public void setY(int y) {
+        this.y = y;
     }
-    int maxNum (){
-       int max = 0;
-        if (x>y){
-           max = x;
-        }else {
+
+    public int getY() {
+        return y;
+    }
+
+    public int getReplacementX(int a) {
+        return this.x = a;
+    }
+
+    public int getReplacementY(int b) {
+        return this.y = b;
+    }
+
+    public int getSum() {
+        return x + y;
+    }
+
+    public int getMaxNum() {
+        int max = 0;
+        if (x > y) {
+            max = x;
+        } else {
             max = y;
         }
         return max;
