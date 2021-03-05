@@ -10,8 +10,10 @@ public class Test1 {
         num.setY(20);
         System.out.println(num.getX());
         System.out.println(num.getY());
-        System.out.println("Заменили Х на - " + num.getReplacementX(5));
-        System.out.println("Заменили Y на - " + num.getReplacementY(10));
+        num.setX(5);
+        num.setY(15);
+        System.out.println(num.getX());
+        System.out.println(num.getY());
         System.out.println("Сумма данных чисел: " + num.getSum());
         System.out.println("Наибольшее и двух чисел: " + num.getMaxNum());
     }
@@ -34,14 +36,6 @@ class Numbers {
 
     public int getY() {
         return y;
-    }
-
-    public int getReplacementX(int a) {
-        return this.x = a;
-    }
-
-    public int getReplacementY(int b) {
-        return this.y = b;
     }
 
     public int getSum() {
