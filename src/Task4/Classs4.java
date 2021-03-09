@@ -16,8 +16,8 @@ public class Classs4 {
 
         trains[0] = new Train("MINSK", 123, 9.45);
         trains[1] = new Train("BREST", 999, 8.45);
-        trains[2] = new Train("MINSK", 431, 21.55);
-        trains[3] = new Train("MINSK", 28, 15.35);
+        trains[2] = new Train("MANSK", 431, 21.55);
+        trains[3] = new Train("BARST", 28, 15.35);
         trains[4] = new Train("BREST", 17, 17.25);
 
         System.out.println("Выберете пункт меню:" + "\n" +
@@ -34,7 +34,6 @@ public class Classs4 {
 
         }
         if (x == 2) {
-            System.out.println("Список поедов:" + 17 + "," + 28 + "," + 123 + "," + 431 + "," + 999);
             System.out.print("Введите номер поезда -");
             int num = scanner.nextInt();
             trainInformation(trains, num);
@@ -48,25 +47,26 @@ public class Classs4 {
         }
     }
 
-    public static char firstLetter(String str) {
-        char[] array = str.toCharArray();
-        return array[0];
+    public static int compare(String str1, String str2) {
+        return str1.compareTo(str2);
     }
 
-    public static void sortingByTrainEndStationAndDepartureTime(Train[] trains) {
+    public static Object[] sortingByTrainEndStationAndDepartureTime(Train[] trains) {
 
         boolean isSorted = false;
         while (!isSorted) {
             isSorted = true;
 
             for (int i = 0; i < trains.length - 1; i++) {
-                if (firstLetter(trains[i].getEndStation()) > firstLetter(trains[i + 1].getEndStation())) {
+
+                if (compare(trains[i].getEndStation(), trains[i + 1].getEndStation()) > 0) {
                     Train zamena = trains[i];
                     trains[i] = trains[i + 1];
                     trains[i + 1] = zamena;
                     isSorted = false;
                 }
-                if (firstLetter(trains[i].getEndStation()) == firstLetter(trains[i + 1].getEndStation())) {
+
+                if (compare(trains[i].getEndStation(), trains[i + 1].getEndStation()) == 0) {
                     if (trains[i].getDepartureTime() > trains[i + 1].getDepartureTime()) {
                         Train zamena = trains[i];
                         trains[i] = trains[i + 1];
@@ -76,30 +76,16 @@ public class Classs4 {
                 }
             }
         }
+
+        return trains;
     }
 
     public static void trainInformation(Train[] trains, int num) {
 
         for (int i = 0; i < trains.length; i++) {
-            if (num == 17) {
-                System.out.println(trains[4]);
-                break;
-            }
-            if (num == 28) {
-                System.out.println(trains[3]);
-                break;
-            }
-            if (num == 431) {
-                System.out.println(trains[2]);
-                break;
-            }
-            if (num == 999) {
-                System.out.println(trains[1]);
-                break;
-            }
-            if (num == 123) {
-                System.out.println(trains[0]);
-                break;
+            if (num == trains[i].getTrainNumber()) {
+                System.out.println(trains[i]);
+
             }
         }
     }
@@ -110,7 +96,7 @@ public class Classs4 {
         }
     }
 
-    public static void sortingByTrainNumbers(Train[] trains) {
+    public static Object[] sortingByTrainNumbers(Train[] trains) {
 
         boolean isSorted = false;
         while (!isSorted) {
@@ -125,6 +111,7 @@ public class Classs4 {
                 }
             }
         }
+        return trains;
     }
 }
 
