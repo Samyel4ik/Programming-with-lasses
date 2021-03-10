@@ -6,18 +6,35 @@ public class Class6 {
     // В случае недопустимых значений полей поле устанавливается в значение 0.
     // Создать методы изменения времени на заданное количество часов, минут и секунд.
     public static void main(String[] args) {
-     Time a = new Time(1,20,50);
-     Time b = new Time();
+        Time a = new Time(1, 20, 50);
+        Time b = new Time();
+        Time c = new Time(0, 20);
+
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println("--------");
+
+        a.setHour(1);
+        a.setMinute(15);
+        a.setSecond(20);
+        System.out.println(a);
+
     }
 }
 
 class Time {
     int hour, minute, second;
 
-    public Time(){
-        this(0,0,0);
+    public Time() {
+        this(0, 0, 0);
     }
-    public Time (int hour,int minute, int second){
+
+    public Time(int hour, int minute) {
+        this(hour, minute, 0);
+    }
+
+    public Time(int hour, int minute, int second) {
         this.hour = hour;
         this.minute = minute;
         this.second = second;
@@ -25,7 +42,7 @@ class Time {
 
     public void setHour(int hour) {
         if (hour < 0 || hour > 23) {
-            hour = 0;
+            this.hour = 0;
         } else {
             this.hour = hour;
         }
@@ -33,7 +50,7 @@ class Time {
 
     public void setMinute(int minute) {
         if (minute < 0 || minute > 59) {
-            minute = 0;
+            this.minute = 0;
         } else {
             this.minute = minute;
         }
@@ -41,17 +58,13 @@ class Time {
 
     public void setSecond(int second) {
         if (second < 0 || second > 59) {
-            second = 0;
+            this.second = 0;
         } else {
             this.second = second;
         }
     }
 
-    public void SetTime(int hour, int minute, int second) {
-        setHour(hour);
-        setMinute(minute);
-        setSecond(second);
+    public String toString() {
+        return hour + "hh" + " " + minute + "mm" + " " + second + "ss";
     }
-
-
 }
