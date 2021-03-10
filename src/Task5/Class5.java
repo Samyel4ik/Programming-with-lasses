@@ -9,7 +9,6 @@ public class Class5 {
     public static void main(String[] args) {
 
         Counter counter = new Counter();
-        //counter.setNum(4);
         while (counter.getState() < 10) {
             System.out.println(counter.getState());
             counter.increment();
@@ -25,11 +24,10 @@ class Counter {
     int num;
 
     public Counter() {
-        this.num = num;
+        this(0);
 
     }
-
-    public void setNum(int num) {
+    public Counter (int num){
         this.num = num;
     }
 
