@@ -8,7 +8,8 @@ public class Class5 {
 
     public static void main(String[] args) {
 
-        Counter counter = new Counter(0);
+        Counter counter = new Counter();
+        //counter.setNum(4);
         while (counter.getState() < 10) {
             System.out.println(counter.getState());
             counter.increment();
@@ -19,20 +20,28 @@ public class Class5 {
         }
     }
 }
-class Counter{
+
+class Counter {
     int num;
 
-    public Counter (int num){
+    public Counter() {
         this.num = num;
 
     }
-    public void increment(){
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
+    public void increment() {
         num++;
     }
-    public void decrement(){
-       num--;
+
+    public void decrement() {
+        num--;
     }
-    int getState(){
+
+    int getState() {
         return num;
     }
 }

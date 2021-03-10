@@ -47,7 +47,7 @@ public class Classs4 {
             writeArray(copy);
         }
         if (x == 4) {
-            
+
             writeArray(trains);
         }
     }
