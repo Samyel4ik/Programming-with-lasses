@@ -15,9 +15,9 @@ public class Class6 {
         System.out.println(c);
         System.out.println("--------");
 
-        a.setHour(1);
+        a.setHour(25);
         a.setMinute(15);
-        a.setSecond(20);
+        a.setSecond(100);
         System.out.println(a);
 
     }
