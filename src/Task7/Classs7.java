@@ -29,16 +29,15 @@ class Point {
         this(0, 0);
     }
 
-    public static double distance(Point a, Point b) {
-        double dx = a.x - b.x;
-        double dy = a.y - b.y;
+    public double distanceTo(Point p) {
+        double dx = this.x - p.x;
+        double dy = this.y - p.y;
         return Math.sqrt(dx * dx + dy * dy);
     }
 
     public String toString() {
         return "Точка пересечения мередиан:" + " " + "(" + x + ";" + y + ")";
     }
-
 }
 
 class Triangle {
@@ -51,17 +50,17 @@ class Triangle {
     }
 
     public double perimeter() {
-        double ab = Point.distance(a, b);   // длины сторон
-        double bc = Point.distance(b, c);
-        double ac = Point.distance(a, c);
+        double ab = a.distanceTo(b);   // длины сторон
+        double bc = b.distanceTo(c);
+        double ac = a.distanceTo(c);
 
         return ab + bc + ac;
     }
 
     public double square() {
-        double ab = Point.distance(a, b);   // длины сторон
-        double bc = Point.distance(b, c);
-        double ac = Point.distance(a, c);
+        double ab = a.distanceTo(b);   // длины сторон
+        double bc = b.distanceTo(c);
+        double ac = a.distanceTo(c);
         // полупериметр
         double p = (ab + bc + ac) / 2;
         return Math.sqrt(p * (p - ab) * (p - bc) * (p - ac));
