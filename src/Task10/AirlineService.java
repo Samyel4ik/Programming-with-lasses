@@ -1,0 +1,101 @@
+package Task10;
+
+//a)список рейсов для заданного пункта назначения
+//b) список рейсов для заданного дня недели;
+//c) список рейсов для заданного дня недели, время вылета для которых больше заданного.
+public class AirlineService {
+    Airline[] airlines;
+
+    public void setAirlines(Airline[] airlines) {
+        this.airlines = airlines;
+    }
+
+    //список рейсов для заданного пункта назначения
+    public int numberOfFlightsByDestination(Airline[] airlines, String str) {
+        int t = 0;
+        for (int i = 0; i < this.airlines.length; i++) {
+            if (this.airlines[i].getDestination().equals(str)) {
+                t++;
+            }
+        }
+        return t;
+    }
+
+    public Airline[] getListOfFlightsByDestination(String str) {
+        Airline[] airlines1 = new Airline[numberOfFlightsByDestination(this.airlines, str)];
+        int a = 0;
+        for (int i = 0; i < this.airlines.length; i++) {
+            if (this.airlines[i].getDestination().equals(str)) {
+                airlines1[a] = this.airlines[i];
+                a++;
+            }
+        }
+        return airlines1;
+    }
+
+    //список рейсов для заданного дня недели
+    public int numberOfFlightsForTheDay(Airline[] airlines, String str) {
+        int t = 0;
+        for (int i = 0; i < this.airlines.length; i++) {
+            if (this.airlines[i].getDaysOfTheWeek().equals(str)) {
+                t++;
+            }
+        }
+        return t;
+    }
+
+    public Airline[] flightListForTeDay(String str) {
+        Airline[] airlines1 = new Airline[numberOfFlightsForTheDay(this.airlines, str)];
+        int a = 0;
+        for (int i = 0; i < this.airlines.length; i++) {
+            if (this.airlines[i].getDaysOfTheWeek().equals(str)) {
+                airlines1[a] = this.airlines[i];
+                a++;
+            }
+        }
+        return airlines1;
+    }
+
+    // время вылета для которых больше заданного.
+    public int numberOfFlightsByTime(Airline[] airlines, double ttt) {
+        int t = 0;
+        for (int i = 0; i < this.airlines.length; i++) {
+            if (this.airlines[i].getDepartureTime() > (ttt)) {
+                t++;
+            }
+        }
+        return t;
+    }
+
+    public Airline[] getListOfFlightsFlightsByTime(double ttt) {
+        Airline[] airlines1 = new Airline[numberOfFlightsByTime(this.airlines, ttt)];
+        int a = 0;
+        for (int i = 0; i < this.airlines.length; i++) {
+            if (this.airlines[i].getDepartureTime() > (ttt)) {
+                airlines1[a] = this.airlines[i];
+                a++;
+            }
+        }
+        return airlines1;
+    }
+
+    //вовращает список пунктов назначения
+    public String[] getDestinationList() {
+        String[] array = new String[this.airlines.length];
+
+        for (int i = 0; i < this.airlines.length; i++) {
+            array[i] = this.airlines[i].getDestination();
+        }
+        return array;
+    }
+
+    //возвращает список рейсов для дня недели
+    public String[] getDaysOfTheWeekList() {
+        String[] array = new String[this.airlines.length];
+
+        for (int i = 0; i < this.airlines.length; i++) {
+            array[i] = this.airlines[i].getDaysOfTheWeek();
+        }
+        return array;
+    }
+}
