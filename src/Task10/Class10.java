@@ -31,38 +31,58 @@ public class Class10 {
         int t = Integer.parseInt(scanner.nextLine());
 
         if (t == 1) {
-            System.out.println("Список рейсов по пункту назначения: " + Arrays.toString(airlineService.getDestinationList()));
+
+            System.out.println("Список рейсов по пункту назначения: ");
+            destinationList(airlineService);
             System.out.print("Ваш выбор - ");
             String str = scanner.nextLine();
-
-            Airline[] airlines1 = airlineService.getListOfFlightsByDestination(str);
-            System.out.println(Arrays.toString(airlines1));
+            arrayPrint(listOfFlightsByDestination(airlineService, str));
         }
         if (t == 2) {
-            System.out.println("Список рейсов по пунтку назначения: " + Arrays.toString(airlineService.getDaysOfTheWeekList()));
+            System.out.println("Список рейсов по пунтку назначения: ");
+            destinationList(airlineService);
             System.out.print("Ваш выбор - ");
             String str = scanner.nextLine();
 
-            Airline[] airlines1 = airlineService.flightListForTeDay(str);
-            System.out.println(Arrays.toString(airlines1));
+            arrayPrint(flightListForTeDay(airlineService, str));
         }
         if (t == 3) {
-            System.out.println("Список рейсов по пунтку назначения: " + Arrays.toString(airlineService.getDaysOfTheWeekList()));
+            System.out.println("Список рейсов по пунтку назначения: ");
+            destinationList(airlineService);
             System.out.print("Ваш выбор - ");
             String str = scanner.nextLine();
             System.out.println("Введите время, вылет рейсов  которых пожзе - ");
             int ttt = scanner.nextInt();
-            Airline[] airlines1 = airlineService.flightListForTeDay(str);
 
             AirlineService airlineService1 = new AirlineService();
-            airlineService1.setAirlines(airlines1);
 
-            Airline[] airlines2 = airlineService1.getListOfFlightsFlightsByTime(ttt);
+            airlineService1.setAirlines(flightListForTeDay(airlineService, str));
 
-            System.out.println(Arrays.toString(airlines2));
+            arrayPrint(airlineService.getListOfFlightsFlightsByTime(ttt));
 
         }
+
     }
 
+    public static void destinationList(AirlineService airlineService) {
+        String[] array = airlineService.getDestinationList();
+        System.out.println(Arrays.toString(array));
+    }
 
+    public static void arrayPrint(Airline[] airlines) {
+        System.out.println(Arrays.toString(airlines));
+    }
+
+    public static Airline[] listOfFlightsByDestination(AirlineService airlineService, String str) {
+        return airlineService.getListOfFlightsByDestination(str);
+    }
+
+    public static Airline[] flightListForTeDay(AirlineService airlineService, String str) {
+        return airlineService.flightListForTeDay(str);
+    }
+
+    public static Airline[] listOfFlightsFlightsByTime(AirlineService airlineService, int ttt) {
+        return airlineService.getListOfFlightsFlightsByTime(ttt);
+
+    }
 }

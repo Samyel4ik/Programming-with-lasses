@@ -33,7 +33,7 @@ public class BookService {
 
     //список книг, выпущенных заданным издательством;
 
-    public int numberOfBooksPublishedByAGivenPublisher(Book[] books, String str) {
+    public int numberOfBooksPublishedByAGivenPublisher(String str) {
         int t = 0;
         for (int i = 0; i < this.books.length; i++) {
             if (this.books[i].getPublishingHouse().equals(str)) {
@@ -44,7 +44,7 @@ public class BookService {
     }
 
     public Book[] getListOfBooksByPublishing(String str) {
-        Book[] books1 = new Book[numberOfBooksPublishedByAGivenPublisher(this.books, str)];
+        Book[] books1 = new Book[numberOfBooksPublishedByAGivenPublisher(str)];
         int a = 0;
         for (int i = 0; i < this.books.length; i++) {
             if (this.books[i].getPublishingHouse().equals(str)) {
@@ -56,7 +56,7 @@ public class BookService {
     }
 
     //c) список книг, выпущенных после заданного года.
-    public int numberOfBooks(Book[] books, int year) {
+    public int numberOfBooks(int year) {
         int t = 0;
         for (int i = 0; i < this.books.length; i++) {
             if (this.books[i].getTheYearOfPublishing() > year) {
@@ -68,7 +68,7 @@ public class BookService {
 
     public Book[] getListOfBooksAfterYear(int year) {
 
-        Book[] books1 = new Book[numberOfBooks(this.books, year)];
+        Book[] books1 = new Book[numberOfBooks(year)];
         int a = 0;
         for (int i = 0; i < this.books.length; i++) {
             if (this.books[i].getTheYearOfPublishing() > year) {

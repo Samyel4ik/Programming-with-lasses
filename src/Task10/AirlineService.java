@@ -11,7 +11,7 @@ public class AirlineService {
     }
 
     //список рейсов для заданного пункта назначения
-    public int numberOfFlightsByDestination(Airline[] airlines, String str) {
+    public int numberOfFlightsByDestination(String str) {
         int t = 0;
         for (int i = 0; i < this.airlines.length; i++) {
             if (this.airlines[i].getDestination().equals(str)) {
@@ -22,7 +22,7 @@ public class AirlineService {
     }
 
     public Airline[] getListOfFlightsByDestination(String str) {
-        Airline[] airlines1 = new Airline[numberOfFlightsByDestination(this.airlines, str)];
+        Airline[] airlines1 = new Airline[numberOfFlightsByDestination(str)];
         int a = 0;
         for (int i = 0; i < this.airlines.length; i++) {
             if (this.airlines[i].getDestination().equals(str)) {
@@ -34,7 +34,7 @@ public class AirlineService {
     }
 
     //список рейсов для заданного дня недели
-    public int numberOfFlightsForTheDay(Airline[] airlines, String str) {
+    public int numberOfFlightsForTheDay(String str) {
         int t = 0;
         for (int i = 0; i < this.airlines.length; i++) {
             if (this.airlines[i].getDaysOfTheWeek().equals(str)) {
@@ -45,7 +45,7 @@ public class AirlineService {
     }
 
     public Airline[] flightListForTeDay(String str) {
-        Airline[] airlines1 = new Airline[numberOfFlightsForTheDay(this.airlines, str)];
+        Airline[] airlines1 = new Airline[numberOfFlightsForTheDay(str)];
         int a = 0;
         for (int i = 0; i < this.airlines.length; i++) {
             if (this.airlines[i].getDaysOfTheWeek().equals(str)) {
@@ -57,7 +57,7 @@ public class AirlineService {
     }
 
     // время вылета для которых больше заданного.
-    public int numberOfFlightsByTime(Airline[] airlines, double ttt) {
+    public int numberOfFlightsByTime(double ttt) {
         int t = 0;
         for (int i = 0; i < this.airlines.length; i++) {
             if (this.airlines[i].getDepartureTime() > (ttt)) {
@@ -68,12 +68,11 @@ public class AirlineService {
     }
 
     public Airline[] getListOfFlightsFlightsByTime(double ttt) {
-        Airline[] airlines1 = new Airline[numberOfFlightsByTime(this.airlines, ttt)];
-        int a = 0;
+        Airline[] airlines1 = new Airline[numberOfFlightsByTime(ttt)];
+
         for (int i = 0; i < this.airlines.length; i++) {
             if (this.airlines[i].getDepartureTime() > (ttt)) {
-                airlines1[a] = this.airlines[i];
-                a++;
+                airlines1[i] = this.airlines[i];
             }
         }
         return airlines1;
