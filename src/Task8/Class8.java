@@ -1,5 +1,8 @@
 package Task8;
 
+import Task9.Book;
+import Task9.BookService;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -32,14 +35,23 @@ public class Class8 {
             System.out.print("Введите конец диопазона - ");
             int y = scanner.nextInt();
 
-            Customer[] customersWithCreditCardIn = customersObject.getCustomersWithCreditCardIn(x, y);    //
-            System.out.println(Arrays.toString(customersWithCreditCardIn));
+            arrayPrint(customersWithCreditCardIn(customersObject, x, y));
         }
         if (t == 1) {
-            Customer[] sortedCustomers = customersObject.getCustomersSortedAlphabetically();
-            System.out.println(Arrays.toString(sortedCustomers));
+            arrayPrint(customersSortedAlphabetically(customersObject));
         }
+    }
 
+    public static void arrayPrint(Customer[] customers) {
+        System.out.println(Arrays.toString(customers));
+    }
+
+    public static Customer[] customersWithCreditCardIn(Customers customers, int x, int y) {
+        return customers.getCustomersWithCreditCardIn(x, y);
+    }
+
+    public static Customer[] customersSortedAlphabetically(Customers customers) {
+        return customers.getCustomersSortedAlphabetically();
     }
 }
 
