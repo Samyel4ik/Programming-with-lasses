@@ -32,27 +32,55 @@ public class Class9 {
         int t = Integer.parseInt(scanner.nextLine());
 
         if (t == 1) {
-            System.out.println("список авторов:" + Arrays.toString(bookService.getAuthor()));
+            System.out.println("список авторов:");
+            listAuthor(bookService);
             System.out.print("Книги какого автора вы бы хотели видеть? - ");
             String str = scanner.nextLine();
 
-            Book[] books1 = bookService.getListOfBooksByAuthor(str);
-            System.out.println(Arrays.toString(books1));
+            arrayPrint(listOfBooksByAuthor(bookService, str));
         }
         if (t == 2) {
-            System.out.println("Книги какого издательства вы бы хотели видеть - " + Arrays.toString(bookService.getpublishingHouse()));
+            System.out.println("Книги какого издательства вы бы хотели видеть - ");
+            listPublishingHouse(bookService);
             System.out.print("Ваш выбор - ");
 
             String str = scanner.nextLine();
-            Book[] books1 = bookService.getListOfBooksByPublishing(str);
-            System.out.println(Arrays.toString(books1));
+            arrayPrint(listOfBooksByPublishing(bookService, str));
         }
         if (t == 3) {
             System.out.print("Введите год после которого были изданы книги - ");
             int r = scanner.nextInt();
-            Book[] books1 = bookService.getListOfBooksAfterYear(r);
-            System.out.println(Arrays.toString(books1));
+
+            arrayPrint(listOfBooksAfterYear(bookService, r));
         }
+    }
+
+    public static void listAuthor(BookService bookService) {
+        String[] array = bookService.getAuthor();
+        System.out.println(Arrays.toString(array));
+
+    }
+
+    public static void listPublishingHouse(BookService bookService) {
+        String[] array = bookService.getpublishingHouse();
+        System.out.println(Arrays.toString(array));
+
+    }
+
+    public static void arrayPrint(Book[] books) {
+        System.out.println(Arrays.toString(books));
+    }
+
+    public static Book[] listOfBooksByAuthor(BookService bookService, String str) {
+        return bookService.getListOfBooksByAuthor(str);
+    }
+
+    public static Book[] listOfBooksByPublishing(BookService bookService, String str) {
+        return bookService.getListOfBooksByPublishing(str);
+    }
+
+    public static Book[] listOfBooksAfterYear(BookService bookService, int r) {
+        return bookService.getListOfBooksAfterYear(r);
     }
 }
 
