@@ -15,12 +15,12 @@ public class Class10 {
         AirlineService airlineService = new AirlineService();
         airlineService.setAirlines(arrayAirlines());
 
-        finish(scanner,airlineService);
-
+        finish(scanner, airlineService);
 
 
     }
-    public static Airline[] arrayAirlines(){
+
+    public static Airline[] arrayAirlines() {
         return new Airline[]{
                 new Airline("Minsk", 123, "passenger", 9.10, "Monday"),
                 new Airline("Brest", 124, "cargo", 12.30, "Wednesday"),
@@ -30,7 +30,7 @@ public class Class10 {
         };
     }
 
-    public static void finish (Scanner scanner,AirlineService airlineService){
+    public static void finish(Scanner scanner, AirlineService airlineService) {
         System.out.println("Выберите пункт меню:" + "\n" +
                 "1.список рейсов для заданного пункта назначения." + "\n" +
                 "2.список рейсов для заданного дня недели." + "\n" +
@@ -66,7 +66,7 @@ public class Class10 {
 
             airlineService1.setAirlines(flightListForTeDay(airlineService, str));
 
-            arrayPrint(airlineService.getListOfFlightsFlightsByTime(ttt));
+            arrayPrint(listOfFlightsFlightsByTime(airlineService1, ttt));
 
         }
     }
