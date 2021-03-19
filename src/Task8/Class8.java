@@ -21,7 +21,8 @@ public class Class8 {
     public static void finish(Scanner scanner, Customers customersObject) {
         System.out.println("\"Выберете пункт меню:" + "\n" +
                 "1. сортировка фамилии покупателей." + "\n" +
-                "2. список покупателей, у которых номер кредитной карточки находится в заданном интервале.");
+                "2. список покупателей, у которых номер кредитной карточки находится в заданном интервале."+ "\n" +
+                "3. добавить покупателя.");
         System.out.print("Ваш выбор - ");
         int t = scanner.nextInt();
 
@@ -30,6 +31,9 @@ public class Class8 {
         }
         if (t == 2) {
             customersWithCreditCardIn(scanner, customersObject);
+
+        }
+        if (t == 3) {
 
         }
     }

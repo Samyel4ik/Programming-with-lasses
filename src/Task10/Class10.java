@@ -10,19 +10,27 @@ public class Class10 {
     // Задать критерии выбора данных и вывести эти данные на консоль.
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        Airline[] airlines = new Airline[]{
+        AirlineService airlineService = new AirlineService();
+        airlineService.setAirlines(arrayAirlines());
+
+        finish(scanner,airlineService);
+
+
+
+    }
+    public static Airline[] arrayAirlines(){
+        return new Airline[]{
                 new Airline("Minsk", 123, "passenger", 9.10, "Monday"),
                 new Airline("Brest", 124, "cargo", 12.30, "Wednesday"),
                 new Airline("Moscow", 125, "passenger", 17.55, "Friday"),
                 new Airline("Kiev", 126, "cargo", 22.10, "Sunday"),
                 new Airline("Minsk", 111, "passenger", 15.00, "Sunday")
         };
-        AirlineService airlineService = new AirlineService();
-        airlineService.setAirlines(airlines);
+    }
 
-        Scanner scanner = new Scanner(System.in);
-
+    public static void finish (Scanner scanner,AirlineService airlineService){
         System.out.println("Выберите пункт меню:" + "\n" +
                 "1.список рейсов для заданного пункта назначения." + "\n" +
                 "2.список рейсов для заданного дня недели." + "\n" +
@@ -61,7 +69,6 @@ public class Class10 {
             arrayPrint(airlineService.getListOfFlightsFlightsByTime(ttt));
 
         }
-
     }
 
     public static void destinationList(AirlineService airlineService) {
