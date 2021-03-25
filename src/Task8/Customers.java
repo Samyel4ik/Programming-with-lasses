@@ -11,6 +11,12 @@ public class Customers {
 
     //список покупателей, у которых номер кредитной карточки находится в заданном интервале
     //-количесвво таких покупателей
+    public Customer[] newCustomers(int id, String surname, String name, String patronymic, int creditCardNumber, int bankAccountNumber) {
+        Customer customer = new Customer(id, surname, name, patronymic, creditCardNumber, bankAccountNumber);
+        Customer[] customers1 = Arrays.copyOf(this.customers, this.customers.length + 1);
+        customers1[customers1.length - 1] = customer;
+        return customers1;
+    }
 
     public int numberOfBuyers(int x, int y) {
         int a = 0;
@@ -40,5 +46,12 @@ public class Customers {
         Customer[] customers1 = Arrays.copyOf(this.customers, this.customers.length);
         Arrays.sort(customers1, new CustomerNameComparator());
         return customers1;
+    }
+
+    @Override
+    public String toString() {
+        return "Customers{" +
+                "customers=" + Arrays.toString(customers) +
+                '}';
     }
 }

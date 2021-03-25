@@ -1,6 +1,6 @@
 package Task8;
 
-class Customer {
+public class Customer {
     int id;
     int creditCardNumber;
     int bankAccountNumber;
@@ -69,11 +69,11 @@ class Customer {
     public String toString() {
         return "Customer{" +
                 "id=" + id +
-                ", creditCardNumber=" + creditCardNumber +
-                ", bankAccountNumber=" + bankAccountNumber +
                 ", surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
                 ", patronymic='" + patronymic + '\'' +
+                ", creditCardNumber=" + creditCardNumber +
+                ", bankAccountNumber=" + bankAccountNumber +
                 '}';
     }
 
