@@ -20,7 +20,7 @@ public class Class9 {
         bookService.setBook(arrayBooks());
         System.out.println("Начнем работу? да или нет ?");
         String str = scanner.nextLine();
-        
+
         while (str.equals("да")) {
             finish(scanner, bookService);
         }

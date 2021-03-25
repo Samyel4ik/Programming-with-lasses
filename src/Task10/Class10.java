@@ -14,9 +14,12 @@ public class Class10 {
 
         AirlineService airlineService = new AirlineService();
         airlineService.setAirlines(arrayAirlines());
+        System.out.println("Начнем работу? да или нет ?");
+        String str = scanner.nextLine();
 
-        finish(scanner, airlineService);
-
+        while (str.equals("да")) {
+            finish(scanner, airlineService);
+        }
 
     }
 
@@ -34,7 +37,8 @@ public class Class10 {
         System.out.println("Выберите пункт меню:" + "\n" +
                 "1.список рейсов для заданного пункта назначения." + "\n" +
                 "2.список рейсов для заданного дня недели." + "\n" +
-                "3.список рейсов для заданного дня недели, время вылета для которых больше заданного.");
+                "3.список рейсов для заданного дня недели, время вылета для которых больше заданного." + "\n" +
+                "4.Добавить Airline.");
         System.out.print("Ваш выбор - ");
         int t = Integer.parseInt(scanner.nextLine());
 
@@ -67,7 +71,23 @@ public class Class10 {
             airlineService1.setAirlines(flightListForTeDay(airlineService, str));
 
             arrayPrint(listOfFlightsFlightsByTime(airlineService1, ttt));
+        }
+        if (t == 4) {
+            System.out.print("Введите номер рейса: ");
+            int flightNumber = Integer.parseInt(scanner.nextLine());
+            System.out.print("Введите пункт назначения: ");
+            String destination = scanner.nextLine();
+            System.out.print("Введите тип самолета: ");
+            String aircraftType = scanner.nextLine();
+            System.out.print("Введите время отправления рейса: ");
+            double departureTime = Double.parseDouble(scanner.nextLine());
+            System.out.print("Введите день отправления рейса: ");
+            String daysOfTheWeek = scanner.nextLine();
 
+            Airline[] airlines = airlineService.addAirlines(destination, flightNumber, aircraftType, departureTime, daysOfTheWeek);
+            AirlineService airlineService1 = new AirlineService();
+            airlineService1.setAirlines(airlines);
+            System.out.println(airlineService1);
         }
     }
 

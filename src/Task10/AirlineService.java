@@ -1,5 +1,7 @@
 package Task10;
 
+import java.util.Arrays;
+
 //a)список рейсов для заданного пункта назначения
 //b) список рейсов для заданного дня недели;
 //c) список рейсов для заданного дня недели, время вылета для которых больше заданного.
@@ -8,6 +10,12 @@ public class AirlineService {
 
     public void setAirlines(Airline[] airlines) {
         this.airlines = airlines;
+    }
+
+    public Airline[] addAirlines(String destination, int flightNumber, String aircraftType, double departureTime, String daysOfTheWeek) {
+        Airline[] airlines1 = Arrays.copyOf(this.airlines, this.airlines.length + 1);
+        airlines1[airlines1.length - 1] = new Airline(destination, flightNumber, aircraftType, departureTime, daysOfTheWeek);
+        return airlines1;
     }
 
     //список рейсов для заданного пункта назначения
@@ -96,5 +104,12 @@ public class AirlineService {
             array[i] = this.airlines[i].getDaysOfTheWeek();
         }
         return array;
+    }
+
+    @Override
+    public String toString() {
+        return "AirlineService{" +
+                "airlines=" + Arrays.toString(airlines) +
+                '}';
     }
 }
