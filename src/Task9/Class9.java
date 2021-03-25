@@ -18,8 +18,12 @@ public class Class9 {
 
         BookService bookService = new BookService();
         bookService.setBook(arrayBooks());
-
-        finish(scanner, bookService);
+        System.out.println("Начнем работу? да или нет ?");
+        String str = scanner.nextLine();
+        
+        while (str.equals("да")) {
+            finish(scanner, bookService);
+        }
     }
 
     public static Book[] arrayBooks() {
@@ -31,11 +35,13 @@ public class Class9 {
         };
     }
 
+
     public static void finish(Scanner scanner, BookService bookService) {
         System.out.println("Выберите пункт меню:" + "\n" +
                 "1.список книг заданного автора." + "\n" +
                 "2.список книг, выпущенных заданным издательством." + "\n" +
-                "3.список книг, выпущенных после заданного года.");
+                "3.список книг, выпущенных после заданного года." + "\n" +
+                "4.Добавить книгу.");
         System.out.print("Ваш выбор - ");
         int t = Integer.parseInt(scanner.nextLine());
 
@@ -60,6 +66,29 @@ public class Class9 {
             int r = scanner.nextInt();
 
             arrayPrint(listOfBooksAfterYear(bookService, r));
+        }
+        if (t == 4) {
+            System.out.print("Введите id книги: ");
+            int id = Integer.parseInt(scanner.nextLine());
+            System.out.print("Введите имя книги: ");
+            String name = scanner.nextLine();
+            System.out.print("Введите год издания книги: ");
+            int theYearOfPublishing = Integer.parseInt(scanner.nextLine());
+            System.out.print("Введите количество страниц книги: ");
+            int numberOfPages = Integer.parseInt(scanner.nextLine());
+            System.out.print("Введите стоимость книги: ");
+            int price = Integer.parseInt(scanner.nextLine());
+            System.out.print("Введите тип переплета книги: ");
+            String bindingType = scanner.nextLine();
+            System.out.print("Введите автора книги: ");
+            String author = scanner.nextLine();
+            System.out.print("Введите издательство книги: ");
+            String publishingHouse = scanner.nextLine();
+
+            Book[] books = bookService.addBook(id, name, theYearOfPublishing, numberOfPages, price, bindingType, author, publishingHouse);
+            BookService bookService1 = new BookService();
+            bookService1.setBook(books);
+            System.out.println(bookService1);
         }
     }
 

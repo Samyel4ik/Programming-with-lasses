@@ -1,10 +1,19 @@
 package Task9;
 
+import java.util.Arrays;
+
 public class BookService {
     Book[] books;
 
     public void setBook(Book[] books) {
         this.books = books;
+    }
+
+    //добавление книги
+    public Book[] addBook(int id, String name, int theYearOfPublishing, int numberOfPages, int price, String bindingType, String author, String publishingHouse) {
+        Book[] book1 = Arrays.copyOf(this.books, this.books.length + 1);
+        book1[book1.length - 1] = new Book(id, name, theYearOfPublishing, numberOfPages, price, bindingType, author, publishingHouse);
+        return book1;
     }
 
     //список книг заданного автора;
@@ -101,4 +110,10 @@ public class BookService {
         return array;
     }
 
+    @Override
+    public String toString() {
+        return "BookService{" +
+                "books=" + Arrays.toString(books) +
+                '}';
+    }
 }
