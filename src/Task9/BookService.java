@@ -10,9 +10,9 @@ public class BookService {
     }
 
     //добавление книги
-    public Book[] addBook(int id, String name, int theYearOfPublishing, int numberOfPages, int price, String bindingType, String author, String publishingHouse) {
+    public Book[] addBook(Book book) {
         Book[] book1 = Arrays.copyOf(this.books, this.books.length + 1);
-        book1[book1.length - 1] = new Book(id, name, theYearOfPublishing, numberOfPages, price, bindingType, author, publishingHouse);
+        book1[book1.length - 1] = book;
         return book1;
     }
 
